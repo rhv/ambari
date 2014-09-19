@@ -48,13 +48,14 @@ import org.junit.runner.RunWith;
 import org.powermock.api.easymock.PowerMock;
 import org.powermock.api.support.membermodification.MemberMatcher;
 import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 
-
+@PowerMockIgnore("javax.security.*")
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({ Configuration.class })
 public class ConfigurationTest {
