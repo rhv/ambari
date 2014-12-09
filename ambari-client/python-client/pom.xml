@@ -41,7 +41,7 @@
     <lib.dir>/usr/lib/ambari-client/lib</lib.dir>
     <python.ver>python &gt;= 2.6</python.ver>
     <deb.python.ver>python (&gt;= 2.6)</deb.python.ver>
-    <deb.architecture>amd64</deb.architecture>
+    <deb.architecture>ppc64le</deb.architecture>
     <deb.dependency.list>openssl, zlibc, ${deb.python.ver}</deb.dependency.list>
   </properties>
   <build>
@@ -133,7 +133,7 @@
             <require>zlib</require>
             <require>${python.ver}</require>
           </requires>
-          <needarch>x86_64</needarch>
+          <needarch>ppc64le</needarch>
           <autoRequires>false</autoRequires>
           <mappings>
             <mapping>
