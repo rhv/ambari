@@ -29,7 +29,7 @@
     <buildnumber-maven-plugin-version>1.2</buildnumber-maven-plugin-version>
     <deb.publisher>Hortonworks</deb.publisher>
     <deb.section>universe/admin</deb.section>
-    <deb.architecture>ppc64le</deb.architecture>
+    <deb.architecture>ppc64el</deb.architecture>
     <deb.priority>extra</deb.priority>
   </properties>
   <pluginRepositories>
