@@ -504,11 +504,13 @@ public class AmbariMetaInfoTest {
     Assert.assertTrue(metaInfo.isOsSupported("centos5"));
     Assert.assertTrue(metaInfo.isOsSupported("oraclelinux5"));
     Assert.assertTrue(metaInfo.isOsSupported("redhat6"));
+    Assert.assertTrue(metaInfo.isOsSupported("redhat7"));
     Assert.assertTrue(metaInfo.isOsSupported("centos6"));
     Assert.assertTrue(metaInfo.isOsSupported("oraclelinux6"));
     Assert.assertTrue(metaInfo.isOsSupported("suse11"));
     Assert.assertTrue(metaInfo.isOsSupported("sles11"));
     Assert.assertTrue(metaInfo.isOsSupported("ubuntu12"));
+    Assert.assertTrue(metaInfo.isOsSupported("ubuntu14"));
     Assert.assertFalse(metaInfo.isOsSupported("windows"));
   }
 
