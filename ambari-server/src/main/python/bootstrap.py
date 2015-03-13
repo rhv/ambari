@@ -33,7 +33,7 @@ from pprint import pformat
 from datetime import datetime
 
 AMBARI_PASSPHRASE_VAR_NAME = "AMBARI_PASSPHRASE"
-HOST_BOOTSTRAP_TIMEOUT = 300
+HOST_BOOTSTRAP_TIMEOUT = 3600
 # how many parallel bootstraps may be run at a time
 MAX_PARALLEL_BOOTSTRAPS = 20
 # How many seconds to wait between polling parallel bootstraps
@@ -145,7 +145,7 @@ class Bootstrap(threading.Thread):
   """ Bootstrap the agent on a separate host"""
   TEMP_FOLDER = DEFAULT_AGENT_TEMP_FOLDER
   OS_CHECK_SCRIPT_FILENAME = "os_check_type.py"
-  AMBARI_REPO_FILENAME = "ambari"
+  AMBARI_REPO_FILENAME = "vdh"
   SETUP_SCRIPT_FILENAME = "setupAgent.py"
   PASSWORD_FILENAME = "host_pass"
   ambari_commons="/usr/lib/python2.6/site-packages/ambari_commons"
@@ -329,9 +329,12 @@ class Bootstrap(threading.Thread):
       command = self.getAptUpdateCommand()
       ssh = SSH(params.user, params.sshkey_file, self.host, command,
                 params.bootdir, self.host_log)
-      retcode2 = ssh.run()
+      retcode4 = ssh.run()
       self.host_log.write("\n")
-
+  
+    # Warnings for gpg 
+    if retcode4 == 100:
+      retcode4 = 0
 
 
     self.host_log.write("==========================\n")
