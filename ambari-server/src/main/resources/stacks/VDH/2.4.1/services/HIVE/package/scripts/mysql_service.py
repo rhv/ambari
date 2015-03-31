@@ -22,7 +22,11 @@ from resource_management import *
 
 
 def mysql_service(daemon_name=None, action='start'):
-  status_cmd = format('service {daemon_name} status | grep online')
+  if System.get_instance().os_family == "ubuntu":
+  	status_cmd = format('service {daemon_name} status | grep online')
+  else:
+  	status_cmd = format('service {daemon_name} status | grep running')
+	
   cmd = format('service {daemon_name} {action}')
 
   if action == 'status':
