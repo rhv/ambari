@@ -25,7 +25,7 @@
   </os>
   <os type="redhat7">
     <repo>
-      <baseurl>http://repo.veristorm.com/repos/vdh/rpm</baseurl>
+      <baseurl>http://repo.veristorm.com/repos/vdh/rpm/current</baseurl>
       <repoid>VDH-2.4.1</repoid>
       <reponame>VDH</reponame>
     </repo>
