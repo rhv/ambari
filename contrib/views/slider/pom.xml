@@ -415,7 +415,7 @@
 		<nodejs.directory>${basedir}/target/nodejs</nodejs.directory>
 		<npm.version>1.4.3</npm.version>
 		<ui.directory>${basedir}/src/main/resources/ui</ui.directory>
-		<hadoop.version>2.6.0-SNAPSHOT</hadoop.version>
+		<hadoop.version>2.6.0</hadoop.version>
 		<avro.version>1.7.4</avro.version>
 		<bigtop.version>0.7.0</bigtop.version>
 		<commons-configuration.version>1.6</commons-configuration.version>

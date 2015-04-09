@@ -29,7 +29,7 @@
     <buildnumber-maven-plugin-version>1.2</buildnumber-maven-plugin-version>
     <deb.publisher>Hortonworks</deb.publisher>
     <deb.section>universe/admin</deb.section>
-    <deb.architecture>i386 amd64</deb.architecture>
+    <deb.architecture>ppc64el</deb.architecture>
     <deb.priority>extra</deb.priority>
     <stack.distribution>HDP</stack.distribution>
   </properties>
@@ -168,6 +168,7 @@
         <artifactId>apache-rat-plugin</artifactId>
         <configuration>
           <excludes>
+            <exclude>node-repo/</exclude>
             <exclude>**/repo_*.j2</exclude>
             <exclude>**/ambari-log4j.spec</exclude>
             <exclude>**/version.txt</exclude>

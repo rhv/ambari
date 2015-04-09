@@ -58,35 +58,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-                <version>0.0.14</version>
-                <configuration>
-                    <nodeVersion>v0.10.26</nodeVersion>
-                    <npmVersion>1.4.3</npmVersion>
-                    <workingDirectory>src/main/resources/ui</workingDirectory>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>install node and npm</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>install-node-and-npm</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>npm install</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>install --unsafe-perm</arguments>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <artifactId>exec-maven-plugin</artifactId>
                 <groupId>org.codehaus.mojo</groupId>
                 <executions>
@@ -97,7 +68,7 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <workingDirectory>${basedir}/src/main/resources/ui</workingDirectory>
+                            <workingDirectory>${user.dir}/node-repo</workingDirectory>
                             <executable>node/node</executable>
                             <arguments>
                                 <argument>node_modules/bower/bin/bower</argument>
@@ -113,7 +84,7 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <workingDirectory>${basedir}/src/main/resources/ui</workingDirectory>
+                            <workingDirectory>${user.dir}/node-repo</workingDirectory>
                             <executable>node/node</executable>
                             <arguments>
                                 <argument>node_modules/.bin/grunt</argument>
