@@ -44,7 +44,7 @@
     <lib.dir>/usr/lib/ambari-agent/lib</lib.dir>
     <python.ver>python &gt;= 2.6</python.ver>
     <deb.python.ver>python (&gt;= 2.6)</deb.python.ver>
-    <deb.architecture>amd64</deb.architecture>
+    <deb.architecture>ppc64el</deb.architecture>
     <deb.dependency.list>openssl, zlibc, ${deb.python.ver}</deb.dependency.list>
     <ambari.server.module>../ambari-server</ambari.server.module>
     <target.cache.dir>${project.build.directory}/cache/</target.cache.dir>
@@ -212,7 +212,7 @@
             <fileEncoding>utf-8</fileEncoding>
           </posttransScriptlet>
 
-          <needarch>x86_64</needarch>
+          <needarch>ppc64el</needarch>
           <autoRequires>false</autoRequires>
           <mappings>
             <mapping>

@@ -49,7 +49,7 @@
     <buildnumber-maven-plugin-version>1.2</buildnumber-maven-plugin-version>
     <deb.publisher>Hortonworks</deb.publisher>
     <deb.section>universe/admin</deb.section>
-    <deb.architecture>i386 amd64</deb.architecture>
+    <deb.architecture>i386 amd64 ppc64el</deb.architecture>
     <deb.priority>extra</deb.priority>
     <stack.distribution>HDP</stack.distribution>
     <ambari.dir>${project.basedir}</ambari.dir>
@@ -246,6 +246,7 @@
         <artifactId>apache-rat-plugin</artifactId>
         <configuration>
           <excludes>
+            <exclude>node-repo/</exclude>
             <exclude>**/repo_*.j2</exclude>
             <exclude>**/ambari-log4j.spec</exclude>
             <exclude>**/version.txt</exclude>
@@ -401,6 +402,71 @@
     </plugins>
   </build>
   <profiles>
+    <profile>
+      <id>node-local</id>
+      <activation>
+         <activeByDefault>false</activeByDefault>
+      </activation>
+      <modules>
+        <module>ambari-web</module>
+        <module>ambari-project</module>
+        <module>ambari-views</module>
+        <module>ambari-admin</module>
+        <module>ambari-server</module>
+        <module>ambari-agent</module>
+        <module>ambari-client</module>
+        <module>ambari-shell</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>default</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>ambari-web</module>
+        <module>ambari-project</module>
+        <module>ambari-views</module>
+        <module>ambari-admin</module>
+        <module>ambari-server</module>
+        <module>ambari-agent</module>
+        <module>ambari-client</module>
+        <module>ambari-shell</module>
+      </modules>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <version>0.0.14</version>
+            <configuration>
+              <nodeVersion>v0.10.26</nodeVersion>
+              <npmVersion>1.4.3</npmVersion>
+              <workingDirectory>${user.dir}/node-repo</workingDirectory>
+            </configuration>
+            <executions>
+              <execution>
+                <id>install node and npm</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>install-node-and-npm</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>npm install</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+                <configuration>
+                  <arguments>install --unsafe-perm</arguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
     <profile>
       <id>default-views</id>
       <activation>
