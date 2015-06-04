@@ -41,10 +41,8 @@ class NameNode(Script):
     j1 = params.java_home
     command = "/opt/vse/sbin/hdfs_ambari.sh " + h1 + " " + n1[0] + " " + j1 + " "
     os.system(command)
-    sys.exit(0)
-    #self.install_packages(env, params.exclude_packages)
     #TODO we need this for HA because of manual steps
-    #self.configure(env)
+    self.configure(env)
 
   def start(self, env):
     import params

@@ -27,10 +27,8 @@ class HdfsClient(Script):
     import params
     import sys
 
-    sys.exit(0)
-    #self.install_packages(env, params.exclude_packages)
-    #env.set_params(params)
-    #self.config(env)
+    env.set_params(params)
+    self.config(env)
 
   def start(self, env):
     import params

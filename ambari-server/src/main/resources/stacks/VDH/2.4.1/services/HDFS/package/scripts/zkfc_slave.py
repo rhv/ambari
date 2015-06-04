@@ -27,9 +27,7 @@ class ZkfcSlave(Script):
     import params
     import sys
 
-    sys.exit(0)
-    #self.install_packages(env, params.exclude_packages)
-    #env.set_params(params)
+    env.set_params(params)
 
   def start(self, env):
     import params
